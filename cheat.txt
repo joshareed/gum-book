@@ -1,24 +1,39 @@
-# Step 0: Initial setup
+# Step 1: Make our first domain change
 
-1. Run the app, create a book or two
-> grails run-app
+1. Add a published flag
 
-2. Show Books domain class
+2. Generate the diff
+> grails dbm-gorm-diff add_published_flag.groovy
 
-3. Install the plugin
-> grails install-plugin database-migration
+3. GOTCHA 1: discuss the implication of dbCreate="update" vs dbCreate="none"
 
-4. Show the docs
-> open http://grails-plugins.github.com/grails-database-migration/docs/manual/index.html
+4. Set our data sources to dbCreate="none"
 
-5. Create an initial changelog
-> grails dbm-generate-changelog changelog.groovy
+5. Drop our database
+> dropdb gum_books_dev; createdb gum_books_dev
 
-6. Show the changelog
+6. Try running the app -- should fail with no schema
 
-7. Show database structure before
+7. Run dbm-update
+> grails dbm-update
 
-8. Mark the changes as run
-> grails dbm-changelog-sync
+8. App should now run but blow up on the published flag.  Comment it out and the app should run.  Uncomment.
 
-9. Show database structure
+9. Re-run diff and compare to before
+> grails dbm-gorm-diff add_published_flag.groovy --add
+
+10. App should run but still blow up on the published flag.
+
+11. GOTCHA 2: not nullable columns with existing data
+
+12. Manually edit the changelog to include a default value.	 Re-run dbm-update.
+
+13. Run-app and inspect the database changes
+
+14. Configure the migration plugin to run on startup
+>> Config.groovy
+> grails.plugin.databasemigration.updateOnStart = true
+> grails.plugin.databasemigration.updateOnStartFileNames = ['changelog.groovy']
+
+15. Re-run scaffolding
+> grails generate-all gum.books.Book
