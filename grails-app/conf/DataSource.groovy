@@ -13,19 +13,19 @@ hibernate {
 environments {
 	development {
 		dataSource {
-			dbCreate = "update" // one of 'create', 'create-drop','update'
+			dbCreate = "none"
 			url = "jdbc:postgresql:gum_books_dev"
 		}
 	}
 	test {
 		dataSource {
-			dbCreate = "update"
+			dbCreate = "none"
 			url = "jdbc:postgresql:gum_books_test"
 		}
 	}
 	production {
 		dataSource {
-			dbCreate = "update"
+			dbCreate = "none"
 			url = "jdbc:postgresql:gum_books_prod"
 		}
 	}

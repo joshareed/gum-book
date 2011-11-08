@@ -46,6 +46,15 @@
                                 </td>
                             </tr>
                         
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="published"><g:message code="book.published.label" default="Published" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: bookInstance, field: 'published', 'errors')}">
+                                    <g:checkBox name="published" value="${bookInstance?.published}" />
+                                </td>
+                            </tr>
+                        
                         </tbody>
                     </table>
                 </div>
