@@ -43,6 +43,13 @@
                             
                         </tr>
                     
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="book.published.label" default="Published" /></td>
+                            
+                            <td valign="top" class="value"><g:formatBoolean boolean="${bookInstance?.published}" /></td>
+                            
+                        </tr>
+                    
                     </tbody>
                 </table>
             </div>

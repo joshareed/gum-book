@@ -23,4 +23,6 @@ databaseChangeLog = {
 	changeSet(author: "josh (generated)", id: "1320769004665-2") {
 		createSequence(schemaName: "public", sequenceName: "hibernate_sequence")
 	}
+
+	include file: 'add_published_flag.groovy'
 }

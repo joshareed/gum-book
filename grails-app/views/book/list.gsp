@@ -28,6 +28,8 @@
                         
                             <g:sortableColumn property="author" title="${message(code: 'book.author.label', default: 'Author')}" />
                         
+                            <g:sortableColumn property="published" title="${message(code: 'book.published.label', default: 'Published')}" />
+                        
                         </tr>
                     </thead>
                     <tbody>
@@ -39,6 +41,8 @@
                             <td>${fieldValue(bean: bookInstance, field: "title")}</td>
                         
                             <td>${fieldValue(bean: bookInstance, field: "author")}</td>
+                        
+                            <td><g:formatBoolean boolean="${bookInstance.published}" /></td>
                         
                         </tr>
                     </g:each>
