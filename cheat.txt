@@ -1,24 +1,8 @@
-# Step 0: Initial setup
+# Step 1: Make our first domain change
 
-1. Run the app, create a book or two
-> grails run-app
+1. Add a published flag
 
-2. Show Books domain class
+2. Generate the diff
+> grails dbm-gorm-diff add_published_flag.groovy
 
-3. Install the plugin
-> grails install-plugin database-migration
-
-4. Show the docs
-> open http://grails-plugins.github.com/grails-database-migration/docs/manual/index.html
-
-5. Create an initial changelog
-> grails dbm-generate-changelog changelog.groovy
-
-6. Show the changelog
-
-7. Show database structure before
-
-8. Mark the changes as run
-> grails dbm-changelog-sync
-
-9. Show database structure
+3. Discuss the implication of dbCreate="update" vs dbCreate="none"
