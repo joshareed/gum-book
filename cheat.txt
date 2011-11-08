@@ -1,0 +1,24 @@
+# Step 0: Initial setup
+
+1. Run the app, create a book or two
+> grails run-app
+
+2. Show Books domain class
+
+3. Install the plugin
+> grails install-plugin database-migration
+
+4. Show the docs
+> open http://grails-plugins.github.com/grails-database-migration/docs/manual/index.html
+
+5. Create an initial changelog
+> grails dbm-generate-changelog changelog.groovy
+
+6. Show the changelog
+
+7. Show database structure before
+
+8. Mark the changes as run
+> grails dbm-changelog-sync
+
+9. Show database structure

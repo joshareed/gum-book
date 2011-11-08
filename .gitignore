@@ -1,0 +1,8 @@
+db
+postgres.log
+.DS_Store
+target
+.classpath
+.project
+.settings
+.metadata
